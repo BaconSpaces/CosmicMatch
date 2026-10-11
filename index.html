@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Match</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div id="main-menu" class="menu-screen">
+        <div class="menu-content">
+            <h1>Cosmic Match</h1>
+            <p>Select your game mode</p>
+            <div class="menu-buttons">
+                <button id="mm-game-modes-button">Game Modes</button>
+                <button id="mm-settings-button">Settings</button>
+                <button id="mm-howto-button">How to Play</button>
+                <button id="mm-quit-button">Quit</button>
+            </div>
+            <div class="menu-version">v1.0.0</div>
+        </div>
+    </div>
+
+    <!-- Game Mode Selection Menu -->
+    <div id="game-mode-menu" class="menu-screen" style="display: none;">
+        <div class="menu-content">
+            <h1>Select Game Mode</h1>
+            <div class="menu-buttons">
+                <button id="gm-uno-classic-button">UNO Classic</button>
+                <button id="gm-uno-show-em-button">UNO Show 'Em No Mercy</button>
+                <button id="gm-uno-flex-button">UNO Flex</button>
+                <button id="gm-uno-spin-button">UNO Spin</button>
+                <button id="gm-back-button">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen (initially hidden) -->
+    <div id="game-screen-container" class="menu-screen" style="display: none;">
+        <div id="app">
+            <div id="game-screen">
+                <header>
+                    <h1>Cosmic Match</h1>
+                    <div id="status">Ready to start</div>
+                </header>
+
+                <div class="game-info-bar">
+                    <div class="info-box" id="player-info">
+                        <label>You</label>
+                        <div id="current-player" class="player active">
+                            <div class="player-name">You</div>
+                            <div id="hand-container"></div>
+                            <div id="player-score" class="player-score">Score: 0</div>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <label>Direction</label>
+                        <div id="direction">Clockwise</div>
+                    </div>
+                    <div class="info-box">
+                        <label>Deck</label>
+                        <div id="deck">0</div>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <section class="discard-pile-box">
+                        <label>Discard Pile</label>
+                        <div id="discard-pile"></div>
+                    </section>
+
+                    <div class="players-container">
+                        <div class="player" id="player-0">
+                            <div class="player-name">You</div>
+                            <div id="hand"></div>
+                            <div id="player-0-score" class="player-score">Score: 0</div>
+                        </div>
+                    </div>
+                </main>
+
+                <section class="log-panel">
+                    <label>Game Log</label>
+                    <div id="log"></div>
+                </section>
+
+                <div class="game-controls">
+                    <button id="start-button">Start Game</button>
+                    <button id="draw-button">Draw</button>
+                    <button id="play-button">Play</button>
+                    <button id="uno-button">UNO!</button>
+                    <button id="challenge-button">Challenge</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Menu -->
+    <div id="settings-menu" class="menu-screen" style="display: none;">
+        <div class="menu-content">
+            <h1>Settings</h1>
+            <div class="settings-options">
+                <div class="setting-item">
+                    <label>AI Players:</label>
+                    <select id="ai-count-select">
+                        <option value="0">0 AI Players</option>
+                        <option value="1" selected>1 AI Player</option>
+                        <option value="2">2 AI Players</option>
+                        <option value="3">3 AI Players</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Game Mode:</label>
+                    <select id="game-mode-select">
+                        <option value="classic" selected>Classic UNO</option>
+                        <option value="show-em-no-mercy">Show 'Em No Mercy</option>
+                        <option value="flex">UNO Flex</option>
+                        <option value="spin">UNO Spin</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Sound:</label>
+                    <input type="checkbox" id="sound-toggle" checked>
+                    <span class="slider"></span>
+                </div>
+            </div>
+            <div class="menu-buttons">
+                <button id="settings-back-button">Back</button>
+                <button id="settings-apply-button">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- How to Play Menu -->
+    <div id="howto-menu" class="menu-screen" style="display: none;">
+        <div class="menu-content">
+            <h1>How to Play</h1>
+            <div class="howto-content">
+                <h2>Objective</h2>
+                <p>Be the first player to get rid of all your cards!</p>
+
+                <h2>Setup</h2>
+                <p>Each player starts with 7 cards. The remaining cards form the draw pile.</p>
+
+                <h2>Gameplay</h2>
+                <p>Match the top card of the discard pile by color, number, or symbol.</p>
+                <p>If you can't play, you must draw a card.</p>
+
+                <h2>Special Cards</h2>
+                <ul>
+                    <li><strong>Draw 2 (+2):</strong> Next player draws 2 cards and loses their turn</li>
+                    <li><strong>Reverse:</strong> Changes direction of play</li>
+                    <li><strong>Skip:</strong> Next player loses their turn</li>
+                    <li><strong>Wild:</strong> Player chooses the next color</li>
+                    <li><strong>Wild Draw 4 (+4):</strong> Player chooses next color AND next player draws 4 cards</li>
+                </ul>
+
+                <h2>UNO</h2>
+                <p>When you have one card left, you must call "UNO!" by pressing the UNO button.</p>
+                <p>If you forget and another player catches you, you must draw 2 penalty cards!</p>
+
+                <h2>Winning</h2>
+                <p>The first player to play all their cards wins the round.</p>
+                <p>Points are scored based on cards left in opponents' hands.</p>
+            </div>
+            <div class="menu-buttons">
+                <button id="howto-back-button">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNO Challenge Modal -->
+    <div id="uno-modal" class="uno-modal">
+        <div class="uno-modal-content">
+            <h2>Challenge</h2>
+            <p>Challenge the previous player for not calling UNO</p>
+            <div id="challenge-status"></div>
+            <button id="confirm-challenge">Confirm Challenge</button>
+        </div>
+    </div>
+
+    <script src="renderer.js" type="module" defer></script>
+</body>
+</html>

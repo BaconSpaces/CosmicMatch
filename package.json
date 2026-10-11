@@ -1,0 +1,17 @@
+{
+  "name": "cosmic-match",
+  "version": "1.0.0",
+  "description": "A complete card game desktop app with a cosmic theme, featuring UNO and other modes",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "test": "node tests/card.test.js && node tests/deck.test.js && node tests/player.test.js && node tests/game.test.js"
+  },
+  "keywords": ["card", "game", "electron", "cosmic"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.0"
+  }
+}

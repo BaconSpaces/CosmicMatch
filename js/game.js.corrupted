@@ -1,0 +1,6 @@
+// Initialize UNO tracking and scores
+    for (let i = 0; i < this.players.length; i++) {
+      this.unoCalled[i] = false;
+      this.unoSaid[i] = false;
+      this.playerScores[i] = 0; // Initialize score for each player
+    }
